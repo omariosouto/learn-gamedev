@@ -1,3 +1,8 @@
+## 2026-06-09 - Animando sprites com código
+
+- ???
+
+
 ## 2026-06-09 - Aplicando o primeiro sprite e corrigindo algumas coisas do projeto
 
 - Criou a pasta `sprites/Pip/` com os sprites do pinguim (baseado no Sprite Pack 6)
