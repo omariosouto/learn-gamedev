@@ -1,26 +1,19 @@
 [gd_scene format=3 uid="uid://blufvbtq5cgan"]
 
-[ext_resource type="Script" uid="uid://bs35e8osk2frf" path="res://scripts/player.gd" id="1_5kiuu"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n4st5"]
-radius = 31.0
-height = 120.0
+[ext_resource type="PackedScene" uid="uid://bf8rx6lgi8q0j" path="res://entities/player.tscn" id="1_5kiuu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5kiuu"]
-size = Vector2(1052.25, 120)
+size = Vector2(340.125, 75)
 
 [node name="Game" type="Node2D" unique_id=1591278542]
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1482188200]
-script = ExtResource("1_5kiuu")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=918219655]
-position = Vector2(101, 144)
-shape = SubResource("CapsuleShape2D_n4st5")
+[node name="Player" parent="." unique_id=2025357875 instance=ExtResource("1_5kiuu")]
+position = Vector2(24, 22)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=132675606]
+position = Vector2(-164, -99)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1137104377]
-position = Vector2(546, 569)
+position = Vector2(269, 220)
 shape = SubResource("RectangleShape2D_5kiuu")
 debug_color = Color(0, 0.6475844, 0.21550259, 0.41960785)
