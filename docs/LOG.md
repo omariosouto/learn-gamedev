@@ -1,7 +1,15 @@
 ## 2026-06-10 - Criando o mapa da fase usando tiles
 
-- ???
+### Começando a mexer
+- Sempre desenhamos o mapa com TileMapLayer
+    - TileMap
+        - Desenha o mapa
+    - TileSet
+        - Select -> Physics
+            - Seleciona toda a área de colisão desse pedaço de mapa
 
+### Mapa da Fase com Colisão nas Plataformas
+- ???
 
 ## 2026-06-10 - Configurando teclas de controle do jogador
 
