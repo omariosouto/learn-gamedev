@@ -1,3 +1,8 @@
+## 2026-06-09 - Configurando teclas de controle do jogador
+
+- ???
+
+
 ## 2026-06-09 - Câmera seguindo o jogador
 
 - Adicionou `Camera2D` como filho do `Player` — por ser filho, ela segue automaticamente sem código
