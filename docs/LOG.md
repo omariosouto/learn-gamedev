@@ -1,3 +1,8 @@
+## 2026-06-10 - Criando o mapa da fase usando tiles
+
+- ???
+
+
 ## 2026-06-10 - Configurando teclas de controle do jogador
 
 - As ações de input ficam em `Project > Project Settings > Input Map`
