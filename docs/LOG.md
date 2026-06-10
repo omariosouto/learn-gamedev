@@ -1,3 +1,15 @@
+## 2026-06-09 - Animando sprites com código
+
+- Segura o Option para fazer referências a objetos na UI do Godot para gerar a linha automaticamente
+    - `@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D`
+- Adicionou animações `walk` (6 frames do Waddling) e `jump` (1 frame) no `SpriteFrames` do player
+- Lógica de troca de animação no `_physics_process`:
+    - No chão + movendo: `sprite.play("walk")` + `flip_h` para inverter direção
+    - No chão + parado: `sprite.play("idle")`
+    - No ar: `sprite.play("jump")`
+- `flip_h = true/false` no `AnimatedSprite2D` é o jeito de espelhar o sprite sem precisar de sprites separados para cada direção
+
+
 ## 2026-06-09 - Aplicando o primeiro sprite e corrigindo algumas coisas do projeto
 
 - Criou a pasta `sprites/Pip/` com os sprites do pinguim (baseado no Sprite Pack 6)
