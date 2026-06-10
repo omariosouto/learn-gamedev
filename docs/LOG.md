@@ -1,3 +1,8 @@
+## 2026-06-09 - Câmera seguindo o jogador
+
+- ???
+
+
 ## 2026-06-09 - Animando sprites com código
 
 - Segura o Option para fazer referências a objetos na UI do Godot para gerar a linha automaticamente
