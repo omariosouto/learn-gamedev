@@ -1,6 +1,12 @@
-## 2026-06-09 - Configurando teclas de controle do jogador
+## 2026-06-10 - Configurando teclas de controle do jogador
 
-- ???
+- As ações de input ficam em `Project > Project Settings > Input Map`
+- Criou 3 ações customizadas no `project.godot`: `left`, `right` e `jump`
+    - `left`: A + seta esquerda
+    - `right`: D + seta direita
+    - `jump`: Espaço + W + seta cima
+- Substituiu as ações padrão da Godot (`ui_left`, `ui_right`, `ui_accept`) pelas ações customizadas no `player.gd`
+    - Boa prática: ações `ui_*` são para menus/UI, não para gameplay
 
 
 ## 2026-06-09 - Câmera seguindo o jogador
