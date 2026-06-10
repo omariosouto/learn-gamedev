@@ -1,6 +1,12 @@
 ## 2026-06-09 - Câmera seguindo o jogador
 
-- ???
+- Adicionou `Camera2D` como filho do `Player` — por ser filho, ela segue automaticamente sem código
+- Configurou limites da câmera (`limit_left/top/right/bottom`) para não sair dos bounds do nível
+- Ativou `position_smoothing_enabled = true` para a câmera suavizar o movimento
+- Ocultou o `CollisionShape2D` do player (`visible = false`) para não aparecer em cena
+- Aumentou o viewport de 150x100 para 300x200 px para ter mais área visível
+- Ajustou SPEED de 30 para 80 para compensar o viewport maior
+- Expandiu o cenário com mais 3 plataformas (`CollisionShape2D2/3/4`) para ter mais chão para andar
 
 
 ## 2026-06-09 - Animando sprites com código
