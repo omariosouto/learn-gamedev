@@ -5,3 +5,8 @@
 ## Sprites
 - https://grafxkid.itch.io/
     - 
+
+## References
+
+- [ ] https://www.youtube.com/watch?v=zLdTvkLsmgA
+- [ ] ???
