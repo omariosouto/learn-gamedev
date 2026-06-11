@@ -1,6 +1,28 @@
-## 2026-06-10 - Trabalhando com Parallax na vertical
+### 🏆 CHALLENGE CONCLUÍDO — Cena Tropics com mar animado
 
-- ???
+- Adicionou `Tropic` como novo source em `terrain.tres` e `decoration.tres` — reutilizou os mesmos arquivos `.tres`, só acrescentou as texturas dos Tropics
+- **Animação de tile via TileSet** (sem código): no `decoration.tres`, o tile de água tem frames animados configurados diretamente no TileSet
+    - `animation_frame_0/duration` e `animation_frame_1/duration` definem o tempo de cada frame
+    - `animation_separation` define o espaço entre os frames no atlas
+    - A animação roda automaticamente em qualquer `TileMapLayer` que use esse source
+- **Parallax vertical**: `motion_scale = Vector2(horizontal, vertical)` — valores diferentes em X e Y criam a sensação de as nuvens flutuarem levemente para cima/baixo ao caminhar
+    - Ex: `Vector2(0.2, 0.1)` = move 20% na horizontal e 10% na vertical
+- **Água animada no fundo (parallax)**: usou `AnimatedSprite2D` com `SpriteFrames` nas layers de água do `ParallaxBackground` — dois sprites lado a lado (`position.x = 576`) para cobrir a tela sem corte durante o loop
+- **Pattern salvo** no `terrain.tres` para reutilizar um grupo de tiles de Tropics facilmente
+- Cena `tropic.tscn` criada do zero reutilizando player, camera, terrain e decoration já existentes
+
+
+## 2026-06-10 - Trabalhando com Camera 2D e Parallax na vertical
+
+- Extraiu a câmera do player para uma cena própria `entities/camera.tscn` com script `scripts/camera.gd`
+    - A câmera agora é independente do player — cada cena instancia a câmera separadamente
+    - Isso resolve o ajuste temporário do `limit_top` que estava fixo no player
+- A câmera usa **Groups** para encontrar o player sem depender de referência direta
+    - Player adicionado ao grupo `"Player"` no `project.godot`
+    - `get_tree().get_nodes_in_group("Player")` retorna todos os nós do grupo na cena
+    - Boa prática: desacopla a câmera do player — funciona em qualquer cena que tenha um nó no grupo
+- Cada cena define seus próprios limites de câmera ao instanciar `camera.tscn`
+    - Ex: `forest.tscn` define `limit_top = 0`, `game.tscn` pode ter limites diferentes
 
 
 ## 2026-06-10 - Trabalhando com Parallax
@@ -20,14 +42,6 @@
     - Cada cena pode ter seus próprios limites de câmera — removeu o `limit_right` fixo do player
 - `limit_top = 8` na câmera do player para evitar corte no topo do background
     > **Ajuste temporário**: o ideal seria configurar os limites de câmera em cada cena, não no player. Corrigir no futuro
-
-
-### 🏆 CHALLENGE
-- Criar uma cena nova usando os assets de Tropics (`3 - Tropics/`)
-- Mapear os tilesets de Tropics como novos tile sources no TileSet de terrain e decoration
-- Estender as decorações para incluir o mar animado
-    - Usar o recurso de **animação de TileSet** da Godot (não código!) para animar os frames do tile de água
-    - O sprite de água já tem frames — `Water_frames (16 x 32).png`
 
 
 ## 2026-06-10 - Criando o mapa da fase usando tiles

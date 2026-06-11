@@ -8,8 +8,10 @@
 [ext_resource type="Texture2D" uid="uid://cuge561w32bdh" path="res://sprites/Seasonal Tilesets/2 - Autumn Forest/Background parts/3 - Bottom_leaf_piles.png" id="6_jo4av"]
 [ext_resource type="Texture2D" uid="uid://drerutkj18kax" path="res://sprites/Seasonal Tilesets/2 - Autumn Forest/Background parts/2 - Trees.png" id="7_jxvlp"]
 [ext_resource type="Texture2D" uid="uid://cnhyx1gv0usde" path="res://sprites/Seasonal Tilesets/2 - Autumn Forest/Background parts/1 - Leaf_top.png" id="8_gwku7"]
+[ext_resource type="PackedScene" uid="uid://duts3gq7r3efy" path="res://entities/camera.tscn" id="9_jo4av"]
 
 [node name="Forest" type="Node2D" unique_id=67162717]
+metadata/_edit_vertical_guides_ = [450.0]
 
 [node name="Player" parent="." unique_id=2025357875 instance=ExtResource("1_e2knd")]
 position = Vector2(25, 102)
@@ -84,3 +86,7 @@ texture = ExtResource("8_gwku7")
 centered = false
 region_enabled = true
 region_rect = Rect2(0, 0, 576, 208)
+
+[node name="Camera" parent="." unique_id=40503331 instance=ExtResource("9_jo4av")]
+limit_top = 0
+limit_right = 450
