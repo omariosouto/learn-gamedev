@@ -1,3 +1,30 @@
+## 2026-06-10 - Trabalhando com Parallax
+
+- Estrutura do parallax na Godot: `ParallaxBackground > ParallaxLayer > Sprite2D`
+    - `ParallaxBackground` é o nó pai que gerencia todas as layers
+    - Cada `ParallaxLayer` tem uma velocidade de movimento diferente
+    - O `Sprite2D` dentro é a imagem que vai se mover
+- `motion_scale` na `ParallaxLayer` controla a velocidade relativa à câmera
+    - `Vector2(0.1, 0.1)` = move a 10% da velocidade da câmera — quanto menor, mais "longe" parece
+- `motion_mirroring` faz o sprite repetir horizontalmente em loop
+    - O valor deve ser a largura da imagem em pixels para o loop ser imperceptível
+    - Ex: `Vector2(288, 0)` para imagens de 288px de largura
+- Viewport ajustado para 400x208 para dar mais espaço horizontal visível
+- TileSets extraídos para arquivos `.tres` externos (`tiles/terrain.tres`, `tiles/decoration.tres`), limpando a cena
+- Criou cena separada `forest.tscn` para experimentar o parallax com os assets da Autumn Forest
+    - Cada cena pode ter seus próprios limites de câmera — removeu o `limit_right` fixo do player
+- `limit_top = 8` na câmera do player para evitar corte no topo do background
+    > **Ajuste temporário**: o ideal seria configurar os limites de câmera em cada cena, não no player. Corrigir no futuro
+
+
+### 🏆 CHALLENGE
+- Criar uma cena nova usando os assets de Tropics (`3 - Tropics/`)
+- Mapear os tilesets de Tropics como novos tile sources no TileSet de terrain e decoration
+- Estender as decorações para incluir o mar animado
+    - Usar o recurso de **animação de TileSet** da Godot (não código!) para animar os frames do tile de água
+    - O sprite de água já tem frames — `Water_frames (16 x 32).png`
+
+
 ## 2026-06-10 - Criando o mapa da fase usando tiles
 
 ### Começando a mexer
