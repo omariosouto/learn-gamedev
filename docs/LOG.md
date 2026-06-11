@@ -1,3 +1,36 @@
+## 2026-06-10 - Criando o mapa da fase usando tiles
+
+### Começando a mexer
+- Sempre desenhamos o mapa com TileMapLayer
+    - TileMap
+        - Desenha o mapa
+    - TileSet
+        - Select -> Physics
+            - Seleciona toda a área de colisão desse pedaço de mapa
+
+### Mapa da Fase com Colisão nas Plataformas
+- Separar os tiles em:
+    - Tiles sólidos (colisão completa — chão, paredes)
+    - Plataformas one-way: colisão só de cima pra baixo, o jogador pula de baixo e atravessa
+        - No TileSet > Physics > marcar `One Way` no polígono de colisão
+        - O polígono deve cobrir só a borda superior do tile, não a caixa inteira
+- `limit_right` da câmera foi para `999999999` para suportar a fase maior sem cortar
+
+### Organizando os níveis de tiles da fase
+- Criar uma hierarquia na cena: `Tiles [Node2D] > Terrain [TileMapLayer] + Decoration [TileMapLayer]`
+    - `Terrain`: tudo que tem colisão (chão, plataformas) — salvo em `tiles/terrain.tres`
+    - `Decoration`: árvores, flores, casas — sem colisão, só visual — salvo em `tiles/decoration.tres`
+- Tiles grandes (árvores, casas) precisam de `size_in_atlas` no TileSet para agrupar os pedaços em um único tile
+    - Exemplo: árvore 3x3 tiles → `size_in_atlas = Vector2i(3, 3)`
+- Sprites grandes fora do alinhamento da grade precisam de ajuste em `TileSet > Rendering > Texture Origin`
+    - Isso corrige o offset visual sem mover o tile no mapa (ex: casa de 7x6 tiles)
+- Salvar os TileSets como arquivos `.tres` em `tiles/` para reutilizar entre cenas
+- `z_index = 1` no `AnimatedSprite2D` do player para ele renderizar na frente das decorações
+
+### Patterns e reutilização
+- Dentro do TileMap, `Patterns` permitem salvar grupos de tiles para pintar seções repetidas facilmente
+- Dentro do TileSet dá pra renomear os sources e salvar como `.tres` para importar em outras fases
+
 ## 2026-06-10 - Configurando teclas de controle do jogador
 
 - As ações de input ficam em `Project > Project Settings > Input Map`
