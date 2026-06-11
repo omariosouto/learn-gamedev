@@ -1,3 +1,8 @@
+## 2026-06-10 - Trabalhando com Parallax na vertical
+
+- ???
+
+
 ## 2026-06-10 - Trabalhando com Parallax
 
 - Estrutura do parallax na Godot: `ParallaxBackground > ParallaxLayer > Sprite2D`
