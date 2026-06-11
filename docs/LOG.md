@@ -17,6 +17,14 @@
     > **Ajuste temporário**: o ideal seria configurar os limites de câmera em cada cena, não no player. Corrigir no futuro
 
 
+### 🏆 CHALLENGE
+- Criar uma cena nova usando os assets de Tropics (`3 - Tropics/`)
+- Mapear os tilesets de Tropics como novos tile sources no TileSet de terrain e decoration
+- Estender as decorações para incluir o mar animado
+    - Usar o recurso de **animação de TileSet** da Godot (não código!) para animar os frames do tile de água
+    - O sprite de água já tem frames — `Water_frames (16 x 32).png`
+
+
 ## 2026-06-10 - Criando o mapa da fase usando tiles
 
 ### Começando a mexer
