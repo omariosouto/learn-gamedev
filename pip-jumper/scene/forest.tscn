@@ -9,6 +9,10 @@
 [ext_resource type="Texture2D" uid="uid://drerutkj18kax" path="res://sprites/Seasonal Tilesets/2 - Autumn Forest/Background parts/2 - Trees.png" id="7_jxvlp"]
 [ext_resource type="Texture2D" uid="uid://cnhyx1gv0usde" path="res://sprites/Seasonal Tilesets/2 - Autumn Forest/Background parts/1 - Leaf_top.png" id="8_gwku7"]
 [ext_resource type="PackedScene" uid="uid://duts3gq7r3efy" path="res://entities/camera.tscn" id="9_jo4av"]
+[ext_resource type="PackedScene" uid="uid://0das8k17okyy" path="res://entities/level_end.tscn" id="10_jxvlp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gwku7"]
+size = Vector2(20, 145)
 
 [node name="Forest" type="Node2D" unique_id=67162717]
 metadata/_edit_vertical_guides_ = [450.0]
@@ -90,3 +94,13 @@ region_rect = Rect2(0, 0, 576, 208)
 [node name="Camera" parent="." unique_id=40503331 instance=ExtResource("9_jo4av")]
 limit_top = 0
 limit_right = 450
+
+[node name="LevelEnd" parent="." unique_id=909211281 instance=ExtResource("10_jxvlp")]
+position = Vector2(390, 134)
+next_level = "tropic"
+
+[node name="CollisionShape2D" parent="LevelEnd" index="0" unique_id=430920724]
+position = Vector2(0, -62.5)
+shape = SubResource("RectangleShape2D_gwku7")
+
+[editable path="LevelEnd"]

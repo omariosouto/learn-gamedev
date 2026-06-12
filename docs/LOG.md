@@ -1,6 +1,21 @@
 ## 2026-06-12 - Adicionando fim de fase
 
-- 
+Até aqui o jogo não tinha progressão: o player chegava no fim do mapa e... nada acontecia.
+O objetivo dessa sessão é conectar as fases — quando o player chega no fim, a próxima fase carrega.
+
+- Criou `entities/level_end.tscn` como `Area2D` — a ideia é ter uma zona invisível no final de cada fase
+  que detecta quando o player entra e dispara a troca de cena
+    - `@export var next_level = ""` deixa o destino configurável pelo editor, sem hardcode no script
+    - `call_deferred("load_next_scene")` porque trocar de cena dentro do loop de física causa crash —
+      o `deferred` garante que a troca só acontece depois que o frame de física terminar
+- Nomeou as **Physics Layers** no projeto (`terrain`, `player`, `enemies`, `level_end`) porque
+  com mais de uma coisa colidindo fica impossível saber o que está colidindo com o quê só pelos números —
+  nomear as layers é o que permite configurar "player detecta terrain e level_end, mas não outros players"
+  de forma legível
+- Conectou `forest.tscn → tropic` e `tropic.tscn → forest` em loop para poder testar a transição
+  sem precisar de menu ou mais fases prontas
+
+
 
 ### 🏆 CHALLENGE CONCLUÍDO — Cena Tropics com mar animado
 
