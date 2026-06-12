@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dgei3uhjjo3b2" path="res://sprites/Seasonal Tilesets/3 - Tropics/Background parts/3 - Floating_clouds.png" id="5_pss51"]
 [ext_resource type="Texture2D" uid="uid://kjxqg3lldmbr" path="res://sprites/Seasonal Tilesets/3 - Tropics/Background parts/1 - Waters_version_1.png" id="7_d18o5"]
 [ext_resource type="Texture2D" uid="uid://dh5871fsgmbmu" path="res://sprites/Seasonal Tilesets/3 - Tropics/Background parts/2 - Waters_version_2.png" id="8_t8vtq"]
+[ext_resource type="PackedScene" uid="uid://0das8k17okyy" path="res://entities/level_end.tscn" id="10_d18o5"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ei81g"]
 animations = [{
@@ -24,11 +25,14 @@ animations = [{
 "speed": 1.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t8vtq"]
+size = Vector2(20, 208)
+
 [node name="Tropic" type="Node2D" unique_id=99524188]
 metadata/_edit_vertical_guides_ = [790.0]
 
 [node name="Player" parent="." unique_id=2025357875 instance=ExtResource("1_ry6l7")]
-position = Vector2(42, 131)
+position = Vector2(736, 142)
 
 [node name="Tiles" type="Node2D" parent="." unique_id=184184257]
 
@@ -94,3 +98,13 @@ centered = false
 
 [node name="Camera" parent="." unique_id=40503331 instance=ExtResource("3_mf6tq")]
 limit_right = 790
+
+[node name="LevelEnd" parent="." unique_id=909211281 instance=ExtResource("10_d18o5")]
+position = Vector2(780, 165)
+next_level = "forest"
+
+[node name="CollisionShape2D" parent="LevelEnd" index="0" unique_id=430920724]
+position = Vector2(0, -61)
+shape = SubResource("RectangleShape2D_t8vtq")
+
+[editable path="LevelEnd"]
