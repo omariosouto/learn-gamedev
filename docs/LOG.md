@@ -1,3 +1,7 @@
+## 2026-06-12 - Adicionando fim de fase
+
+- 
+
 ### 🏆 CHALLENGE CONCLUÍDO — Cena Tropics com mar animado
 
 - Adicionou `Tropic` como novo source em `terrain.tres` e `decoration.tres` — reutilizou os mesmos arquivos `.tres`, só acrescentou as texturas dos Tropics
