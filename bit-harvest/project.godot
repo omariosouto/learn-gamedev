@@ -14,6 +14,10 @@ config/name="Bit Harvest"
 config/features=PackedStringArray("4.6", "Mobile")
 config/icon="res://icon.svg"
 
+[debug]
+
+gdscript/warnings/untyped_declaration=2
+
 [display]
 
 window/size/viewport_width=640
@@ -55,11 +59,6 @@ walk_right={
 [physics]
 
 3d/physics_engine="Jolt Physics"
-
-[gdscript]
-
-warnings/untyped_declaration=3
-warnings/inferred_declaration=3
 
 [rendering]
 

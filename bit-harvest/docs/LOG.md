@@ -21,4 +21,4 @@
 - Assets organizados em `assets/game/` (separando os sprites "de jogo" dos arquivos de referência que ficam em `docs/base-assets/`)
 
 # 000 - Ajustes obrigatórios
-- Ativado erro de tipagem no GDScript via `project.godot` — `warnings/untyped_declaration=2` e `warnings/infer_variable_type=2` transformam ausência de tipo explícito em **erro**, impedindo o jogo de rodar. A intenção é forçar o hábito de tipar variáveis e retornos de função desde o início, aproveitando o type checker do Godot para pegar bugs antes de rodar
+- Ativado erro de tipagem no GDScript via `project.godot` — a configuração correta fica na seção `[debug]` com a chave completa `gdscript/warnings/untyped_declaration=2`, que transforma variáveis sem tipo explícito em **erro**, impedindo o jogo de rodar. A intenção é forçar o hábito de tipar variáveis e retornos de função desde o início, aproveitando o type checker do Godot para pegar bugs antes de rodar. **Atenção:** a chave precisa estar em `[debug]` com o prefixo `gdscript/warnings/` — seções alternativas como `[gdscript]` são ignoradas silenciosamente pelo Godot
