@@ -58,8 +58,8 @@ walk_right={
 
 [gdscript]
 
-warnings/untyped_declaration=2
-warnings/inferred_declaration=2
+warnings/untyped_declaration=3
+warnings/inferred_declaration=3
 
 [rendering]
 
