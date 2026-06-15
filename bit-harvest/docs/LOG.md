@@ -19,3 +19,6 @@
 - Adicionado o atlas de decorações (`basic_grass_biome_things.png`) como quarta fonte no TileSet para árvores, arbustos e outros elementos de natureza
 - Criada a cena de teste `scenes/test/test_scene_tilemap.tscn` com um nó `GameTileMap` contendo 4 camadas (`TileMapLayer`) em ordem de profundidade: **Water → Grass → TilledDirt → Nature** — a separação em camadas permite controle independente de z-index e colisão por tipo de terreno
 - Assets organizados em `assets/game/` (separando os sprites "de jogo" dos arquivos de referência que ficam em `docs/base-assets/`)
+
+# 000 - Ajustes obrigatórios
+- Ativado erro de tipagem no GDScript via `project.godot` — `warnings/untyped_declaration=2` e `warnings/infer_variable_type=2` transformam ausência de tipo explícito em **erro**, impedindo o jogo de rodar. A intenção é forçar o hábito de tipar variáveis e retornos de função desde o início, aproveitando o type checker do Godot para pegar bugs antes de rodar

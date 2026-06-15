@@ -56,6 +56,11 @@ walk_right={
 
 3d/physics_engine="Jolt Physics"
 
+[gdscript]
+
+warnings/untyped_declaration=2
+warnings/infer_variable_type=2
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
