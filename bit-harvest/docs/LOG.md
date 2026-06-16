@@ -2,6 +2,7 @@
 # 003 - Criar o estado para as ações do personagem `tilling`, `watering`, `chopping`...
 
 **Trampo base**
+- Animações de ação (`chopping_*`, `tilling_*`, `watering_*`) configuradas com `loop: false` no `SpriteFrames` — obrigatório para que `!animated_sprite.is_playing()` funcione e o estado consiga transitar de volta ao `Idle` quando a animação termina
 - Criado `scripts/globals/data_types.gd` com `class_name DataTypes` e o enum `Tools` (None, AxeWood, TillGround, WaterCrops, PlantCorn, PlantTomato) para centralizar os valores válidos de ferramenta, evitando strings ou ints mágicos espalhados pelo código
 - Adicionado `@export var current_tool: DataTypes.Tools` em `player.gd` para que os estados possam ler qual ferramenta está equipada sem precisar de uma variável global separada
 - Adicionado `use_tool() -> bool` em `GameInputEvents` usando `is_action_just_pressed("hit")` para detectar o acionamento da ferramenta — separado de `movement_input()` para que cada tipo de input tenha sua própria responsabilidade
@@ -10,6 +11,7 @@
 **Por estado**
 - `chopping.gd`: toca `chopping_<direção>`, transição `Idle → Chopping` via `DataTypes.Tools.AxeWood`
 - `tilling.gd`: toca `tilling_<direção>`, transição `Idle → Tilling` via `DataTypes.Tools.TillGround`
+- `watering.gd`: toca `watering_<direção>`, transição `Idle → Watering` via `DataTypes.Tools.WaterCrops`
 
 # 002 - Criar o personagem e sua máquina de estado para `walk` e `idle`
 - Criada a cena `scenes/characters/player.tscn` com `AnimatedSprite2D`, `CollisionShape2D` (círculo) e o nó `StateMachine` como filho — a hierarquia reflete que a máquina de estado pertence ao personagem, não ao mundo
