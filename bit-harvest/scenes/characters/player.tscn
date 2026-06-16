@@ -6,6 +6,11 @@
 [ext_resource type="Script" uid="uid://dcew8x4ldw0r3" path="res://scripts/state_machine/node_state_machine.gd" id="3_76oj4"]
 [ext_resource type="Script" uid="uid://lbru0ddlyn2h" path="res://scenes/characters/player/idle_state.gd" id="4_dyp2m"]
 [ext_resource type="Script" uid="uid://4gqhwjrgeyry" path="res://scenes/characters/player/walk_state.gd" id="5_atpat"]
+[ext_resource type="Script" uid="uid://373l8d5cbm4i" path="res://scenes/characters/player/chopping.gd" id="7_6eyoc"]
+[ext_resource type="Script" uid="uid://ccufa2g687mvt" path="res://scenes/characters/player/tilling.gd" id="8_eojnx"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hnvwh"]
+radius = 7.071068
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dyp2m"]
 atlas = ExtResource("1_yewv4")
@@ -176,7 +181,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_atpat")
 }],
-"loop": true,
+"loop": false,
 "name": &"chopping_back",
 "speed": 3.0
 }, {
@@ -187,7 +192,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_6eyoc")
 }],
-"loop": true,
+"loop": false,
 "name": &"chopping_front",
 "speed": 3.0
 }, {
@@ -198,7 +203,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_qgnko")
 }],
-"loop": true,
+"loop": false,
 "name": &"chopping_left",
 "speed": 3.0
 }, {
@@ -209,7 +214,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_2l4js")
 }],
-"loop": true,
+"loop": false,
 "name": &"chopping_right",
 "speed": 3.0
 }, {
@@ -390,21 +395,19 @@ animations = [{
 "speed": 3.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_hnvwh"]
-radius = 7.071068
-
 [node name="Player" type="CharacterBody2D" unique_id=1122521093]
 script = ExtResource("1_kqtwu")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1378143248]
-position = Vector2(0, -7)
-sprite_frames = SubResource("SpriteFrames_tswxa")
-animation = &"idle_front"
-autoplay = "idle_front"
+current_tool = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1809555400]
 position = Vector2(0, -7)
 shape = SubResource("CircleShape2D_hnvwh")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1378143248]
+position = Vector2(0, -7)
+sprite_frames = SubResource("SpriteFrames_tswxa")
+animation = &"chopping_back"
+autoplay = "idle_front"
 
 [node name="StateMachine" type="Node" parent="." unique_id=1273623378 node_paths=PackedStringArray("initial_node_state")]
 script = ExtResource("3_76oj4")
@@ -417,5 +420,15 @@ animated_sprite = NodePath("../../AnimatedSprite2D")
 
 [node name="Walk" type="Node" parent="StateMachine" unique_id=720241886 node_paths=PackedStringArray("player", "animated_sprite")]
 script = ExtResource("5_atpat")
+player = NodePath("../..")
+animated_sprite = NodePath("../../AnimatedSprite2D")
+
+[node name="Chopping" type="Node" parent="StateMachine" unique_id=1571305145 node_paths=PackedStringArray("player", "animated_sprite")]
+script = ExtResource("7_6eyoc")
+player = NodePath("../..")
+animated_sprite = NodePath("../../AnimatedSprite2D")
+
+[node name="Tilling" type="Node" parent="StateMachine" unique_id=641612751 node_paths=PackedStringArray("player", "animated_sprite")]
+script = ExtResource("8_eojnx")
 player = NodePath("../..")
 animated_sprite = NodePath("../../AnimatedSprite2D")
